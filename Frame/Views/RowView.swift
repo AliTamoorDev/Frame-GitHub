@@ -583,7 +583,7 @@ struct RowView: View {
                 TextField("Search Category", text: $categorySearchText, onEditingChanged: { _ in
                     fieldTitle = "Category"
                     self.currentField = .category })
-                    .frame(height: 50)
+                    .frame(height: 100)
                     .padding(5)
                     .background(Color(UIColor.tertiarySystemFill))
                     .cornerRadius(5)
@@ -606,7 +606,7 @@ struct RowView: View {
 
                     self.currentField = .selector
                 })
-                    .frame(height: 50)
+                    .frame(height: 100)
                     .padding(5)
                     .background(Color(UIColor.tertiarySystemFill))
                     .cornerRadius(5)

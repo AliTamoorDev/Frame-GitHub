@@ -26,7 +26,7 @@ struct ProjectDetailView2: View {
     @State var isExportingCSV = false
     @State var isGroupCreated:Bool = true
     @State var isRoomCreated:Bool = true
-    @State var addGroupOrRoom = "Rooms/Group"
+    @State var addGroupOrRoom = "Rooms/Area"
     
     var body: some View {
         //        VStack {

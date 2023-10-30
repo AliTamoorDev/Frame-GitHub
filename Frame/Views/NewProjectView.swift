@@ -37,18 +37,18 @@ struct NewProjectView: View {
                     Section {
                         DatePicker("Date of Site Visit", selection: $dateOfVisit, displayedComponents: .date).accentColor(.blue)
                         TextField("Project Name", text: $projectName, onEditingChanged: { _ in self.currentField = .projectName })
-                            .frame(height: 50)
+                            .frame(height: 100)
 //                        TextField("Project Name", text: $projectName)
                         TextField("Project Type", text: $projectType, onEditingChanged: { _ in self.currentField = .projectType })
-                            .frame(height: 50)
+                            .frame(height: 100)
 
                         TextField("Project Location", text: $projectLocation, onEditingChanged: { _ in self.currentField = .projectLocation })
-                            .frame(height: 50)
+                            .frame(height: 100)
 
                         TextField("Damage Type", text: $damageType, onEditingChanged: { _ in
                             
                             self.currentField = .damageType })
-                        .frame(height: 50)
+                        .frame(height: 100)
 
                     } header: {
                         Text("New Project Details")

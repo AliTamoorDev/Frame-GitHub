@@ -61,12 +61,12 @@
 			children = (
 				3221A0AC2AED4A64005524DB /* NewProjectView.swift */,
 				3221A0AA2AED4A2F005524DB /* ProjectDetailView.swift */,
+				3226EE682AEEB5BD004D9BD5 /* ProjectDetailView2.swift */,
 				3221A09E2AED48E6005524DB /* NewRoomView.swift */,
 				3221A0A12AED491C005524DB /* RoomDetailsView.swift */,
 				3221A0A32AED495E005524DB /* AddRowButton.swift */,
 				3221A0A52AED4989005524DB /* RowView.swift */,
 				3221A0AE2AED4A96005524DB /* DrawingCanvas.swift */,
-				3226EE682AEEB5BD004D9BD5 /* ProjectDetailView2.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

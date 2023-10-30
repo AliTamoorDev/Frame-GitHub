@@ -170,8 +170,8 @@
             filePath = "Frame/Views/ProjectDetailView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
             landmarkName = "addRoom(named:)"
             landmarkType = "7">
             <Locations>
@@ -218,8 +218,8 @@
             filePath = "Frame/Views/ProjectDetailView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -266,8 +266,8 @@
             filePath = "Frame/Views/ProjectDetailView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -329,8 +329,8 @@
             filePath = "Frame/Views/ProjectDetailView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
             landmarkName = "addDivision(named:)"
             landmarkType = "7">
             <Locations>
@@ -377,8 +377,8 @@
             filePath = "Frame/Views/ProjectDetailView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "addButton"
             landmarkType = "24">
          </BreakpointContent>
@@ -600,8 +600,8 @@
             filePath = "Frame/Views/ProjectDetailView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "186"
-            endingLineNumber = "186"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
             landmarkName = "saveAndShareCSV()"
             landmarkType = "7">
             <Locations>

@@ -30,7 +30,7 @@ struct NewRoomView: View {
 //                    .frame(height: 200)
 //
 //                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .frame(height: 50)
+                    .frame(height: 100)
                     .padding(5)
                     .background(Color(UIColor.tertiarySystemFill))
                     .cornerRadius(5)

@@ -18,7 +18,7 @@ struct ProjectDetailView: View {
     @State var isExportingCSV = false
     @State var isGroupCreated:Bool = true
     @State var isRoomCreated:Bool = true
-    @State var addGroupOrRoom = "Rooms/Group"
+    @State var addGroupOrRoom = "Rooms/Area"
 
     var body: some View {
 //        VStack {
@@ -79,7 +79,12 @@ struct ProjectDetailView: View {
 //                }
             }
         }
-        
+        .onChange(of: division.subDivisions, { oldValue, newValue in
+            setText()
+        })
+        .onAppear{
+            setText()
+        }
         .padding(.horizontal)
         .listStyle(GroupedListStyle())
                 .textCase(nil)
@@ -114,7 +119,7 @@ struct ProjectDetailView: View {
                 self.addDivision(named: name)
                 self.isRoomCreated = false
                 self.showingGroupSheet = false
-                addGroupOrRoom = "Group"
+//                addGroupOrRoom = "Group"
             }
         }
         .sheet(isPresented: $showingAlert) {
@@ -122,8 +127,18 @@ struct ProjectDetailView: View {
                 self.addRoom(named: name)
                 self.isGroupCreated = false
                 self.showingAlert = false
-                addGroupOrRoom = "Room"
+//                addGroupOrRoom = "Room"
             }
+        }
+    }
+    
+    func setText() {
+        if division.subDivisions.isEmpty && division.rooms.isEmpty {
+            addGroupOrRoom = "Rooms/Area"
+        } else if division.subDivisions.count > 0{
+            addGroupOrRoom = "Area"
+        } else {
+            addGroupOrRoom = "Rooms"
         }
     }
     
