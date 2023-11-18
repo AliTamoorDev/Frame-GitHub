@@ -556,12 +556,15 @@ struct RowView: View {
     @State private var categorySearchText: String = ""
     @State private var selectorSearchText: String = ""
     @State private var isEditingDescription: Bool = false
+    @State private var isEditingQuantity: Bool = false
+
     @FocusState private var isTextFieldFocused: Bool
     @State private var currentField: FieldToFill = .category
     enum FieldToFill {
         case category
         case selector
         case quantity
+        case description
 //        case action
     }
     
@@ -619,7 +622,9 @@ struct RowView: View {
                             case .selector:
                                 selectorSearchText = data
                             case .quantity:
-                                row.quantityAndDescription = data
+                                row.quantity = data
+                            case .description:
+                                row.desc = data
                             }
                         }
                     }
@@ -654,25 +659,39 @@ struct RowView: View {
             }
             
             VStack(alignment: .leading, spacing: 5) {
-                Text("Quantity & Description")
+                Text("Quantity")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                TextField("Enter Quantity", text: $row.quantity, onEditingChanged: { _ in
+                    fieldTitle = "Quantity"
+                    self.currentField = .quantity })
+                    .frame(height: 100)
+                    .padding(5)
+                    .background(Color(UIColor.tertiarySystemFill))
+                    .cornerRadius(5)
+                    .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray, lineWidth: 0.5))
+            }
+            
+            VStack(alignment: .leading, spacing: 5) {
+                Text("Description")
                     .font(.caption)
                     .foregroundColor(.gray)
                 ZStack(alignment: .topLeading) {
-                    if row.quantityAndDescription.isEmpty && !isEditingDescription {
-                        Text("Enter Quantity & Description")
+                    if row.desc.isEmpty && !isEditingDescription {
+                        Text("Enter Description")
                             .foregroundColor(.gray)
                             .padding(.top, 8)
                             .padding(.leading, 4)
                     }
-                    TextEditor(text: $row.quantityAndDescription)
+                    TextEditor(text: $row.desc)
                         .onTapGesture {
                             isEditingDescription = true
                         }
                         .focused($isTextFieldFocused, equals: true)
                         .onChange(of: isTextFieldFocused) { newValue in
-                            fieldTitle = "Quantity & Description"
+                            fieldTitle = "Description"
                             if newValue {
-                                self.currentField = .quantity
+                                self.currentField = .description
                             }
                         }
                     
@@ -699,8 +718,11 @@ struct RowView: View {
             fieldTitle = "Selector"
             return "Selector"
         case .quantity:
-            fieldTitle = "Quantity & Description"
-            return "Quantity & Description"
+            fieldTitle = "Quantity"
+            return "Quantity"
+        case .description:
+            fieldTitle = "Description"
+            return "Description"
         }
     }
 }

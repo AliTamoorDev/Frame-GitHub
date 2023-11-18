@@ -14,12 +14,12 @@ extension ProjectDetailView {
     func toCSV() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        let formattedDate = dateFormatter.string(from: project.dateOfVisit)
+        let formattedDate = dateFormatter.string(from: detail.project.dateOfVisit)
 
         var csvString = "Date of Visit,Project Name,Project Type,Project Location,Damage Type\n"
-        csvString += "\(formattedDate),\(project.name),\(project.type),\(project.location),\(project.damage)\n\n"
+        csvString += "\(formattedDate),\(detail.project.name),\(detail.project.type),\(detail.project.location),\(detail.project.damage)\n\n"
 
-        var endResult = csvString + concatenateDivisionNames(division, depth: 0)
+        var endResult = csvString + concatenateDivisionNames(detail.division, depth: 0)
         print(endResult)
         return endResult
     }
@@ -28,7 +28,7 @@ extension ProjectDetailView {
     func roomDetails(room: Room, depth: Int) -> String {
         var result = ""
         result += "\n" + String(repeating: ",", count: depth) + room.name
-        result += "\n" + String(repeating: ",", count: depth + 1) + "Category,Category Description,Selector,Action,Quantity & Description"
+        result += "\n" + String(repeating: ",", count: depth + 1) + "Category,Category Description,Selector,Action,Quantity,Description"
         for detail in room.details {
             let comp = detail.category.components(separatedBy: ":")
             var catAbr = ""
@@ -41,7 +41,7 @@ extension ProjectDetailView {
             } else {
                 catAbr = ""
             }
-            result += "\n" + String(repeating: ",", count: depth + 1) + "\(catAbr.replacingOccurrences(of: ",", with: "")),\(catDesc.replacingOccurrences(of: ",", with: "")),\(detail.selector),\(detail.action),\(detail.quantityAndDescription)"
+            result += "\n" + String(repeating: ",", count: depth + 1) + "\(catAbr.replacingOccurrences(of: ",", with: "")),\(catDesc.replacingOccurrences(of: ",", with: "")),\(detail.selector),\(detail.action),\(detail.quantity),\(detail.desc)"
         }
         return result
     }
@@ -116,7 +116,7 @@ extension ProjectDetailView2 {
     func roomDetails(room: Room, depth: Int) -> String {
         var result = ""
         result += "\n" + String(repeating: ",", count: depth) + room.name
-        result += "\n" + String(repeating: ",", count: depth + 1) + "Category,Category Description,Selector,Action,Quantity & Description"
+        result += "\n" + String(repeating: ",", count: depth + 1) + "Category,Category Description,Selector,Action,Quantity,Description"
         for detail in room.details {
             let comp = detail.category.components(separatedBy: ":")
             var catAbr = ""
@@ -129,7 +129,7 @@ extension ProjectDetailView2 {
             } else {
                 catAbr = ""
             }
-            result += "\n" + String(repeating: ",", count: depth + 1) + "\(catAbr.replacingOccurrences(of: ",", with: "")),\(catDesc.replacingOccurrences(of: ",", with: "")),\(detail.selector),\(detail.action),\(detail.quantityAndDescription)"
+            result += "\n" + String(repeating: ",", count: depth + 1) + "\(catAbr.replacingOccurrences(of: ",", with: "")),\(catDesc.replacingOccurrences(of: ",", with: "")),\(detail.selector),\(detail.action),\(detail.quantity),\(detail.desc)"
         }
         return result
     }

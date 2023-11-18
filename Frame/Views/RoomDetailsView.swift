@@ -17,7 +17,7 @@ struct RoomDetailsView: View {
     @State private var drawingImage: UIImage? = nil
     @State private var data: String = ""
     @State private var fieldTitle: String = "Category"
-    
+    @EnvironmentObject var projectData: ProjectData
     enum FieldToFill {
         case projectName
         case projectType
@@ -41,39 +41,39 @@ struct RoomDetailsView: View {
             Spacer()
             if !room.details.isEmpty {
                 VStack(alignment: .center) {
-                    Text("Writing For: \(fieldTitle)").font(.headline)
+//                    Text("Writing For: \(fieldTitle)").font(.headline)
 //                    DrawingCanvas(drawingImage: $drawingImage, viewModel: drawingViewModel, shouldClear: $shouldClearCanvas)
 //                        .padding()
 //                        .frame(height: 400)
-                    HStack {
-//                        Spacer()
-                        VStack {
-                            
-                            Button("Done Writing") {
-                                data = drawingViewModel.recognizedText
-                                shouldClearCanvas = true
-                                drawingViewModel.recognizedText = ""
-                            }
-                            .padding()
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(8)
-                        }
-                        .padding(.trailing, 80)
-                        
-//                        Spacer()
-                        
-                        Button(action: {
-                            self.shouldClearCanvas = true
-                        }) {
-                            Text("Clear Canvas")
-                                .padding()
-                                .background(Color.red)
-                                .foregroundColor(.white)
-                                .cornerRadius(8)
-                        }
-                        .padding(.trailing)
-                    }
+//                    HStack {
+////                        Spacer()
+//                        VStack {
+//                            
+//                            Button("Done Writing") {
+//                                data = drawingViewModel.recognizedText
+//                                shouldClearCanvas = true
+//                                drawingViewModel.recognizedText = ""
+//                            }
+//                            .padding()
+//                            .background(Color.blue)
+//                            .foregroundColor(.white)
+//                            .cornerRadius(8)
+//                        }
+//                        .padding(.trailing, 80)
+//                        
+////                        Spacer()
+//                        
+//                        Button(action: {
+//                            self.shouldClearCanvas = true
+//                        }) {
+//                            Text("Clear Canvas")
+//                                .padding()
+//                                .background(Color.red)
+//                                .foregroundColor(.white)
+//                                .cornerRadius(8)
+//                        }
+//                        .padding(.trailing)
+//                    }
                 }
             }
             AddRowButton(action: addRow)
@@ -99,10 +99,12 @@ struct RoomDetailsView: View {
 //    }
     func addRow() {
         room.details.append(RoomDetailRowData())
+        DataStore.shared.saveProjectData(projectData)
     }
     
     func deleteRow(at offsets: IndexSet) {
         room.details.remove(atOffsets: offsets)
+        DataStore.shared.saveProjectData(projectData)
     }
 }
 

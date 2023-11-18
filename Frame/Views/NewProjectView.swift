@@ -62,7 +62,7 @@ struct NewProjectView: View {
                 }
                 .navigationBarTitle("New Project", displayMode: .inline)
                 
-                Text("Writing For: \(currentFieldTitle)").font(.headline)
+//                Text("Writing For: \(currentFieldTitle)").font(.headline)
                 
 //                DrawingCanvas(drawingImage: $drawingImage, viewModel: drawingViewModel, shouldClear: $shouldClearCanvas)
 //                    .frame(height: 300)
@@ -72,14 +72,14 @@ struct NewProjectView: View {
                     Spacer()
                     VStack {
                         
-                        Button("Done Writing") {
-                            updateCurrentField()
-                            shouldClearCanvas = true
-                        }
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
+//                        Button("Done Writing") {
+//                            updateCurrentField()
+//                            shouldClearCanvas = true
+//                        }
+//                        .padding()
+//                        .background(Color.blue)
+//                        .foregroundColor(.white)
+//                        .cornerRadius(8)
                         
                         Button("Save Project") {
                             let newProject = Project(
@@ -87,31 +87,32 @@ struct NewProjectView: View {
                                 name: projectName,
                                 type: projectType,
                                 location: projectLocation,
-                                damage: damageType,
-                                rooms: []) // You need to provide the rooms information here
+                                damage: damageType) // You need to provide the rooms information here
                             
                             onSave(newProject)
                         }
+                        .frame(height: 40)
                         .padding()
+                        .padding(.horizontal, 15)
                         .background(projectName.isEmpty || projectType.isEmpty || projectLocation.isEmpty || damageType.isEmpty ? Color.gray : Color.blue)
                         .foregroundColor(.white)
                         .cornerRadius(8)
                         .disabled(projectName.isEmpty || projectType.isEmpty || projectLocation.isEmpty || damageType.isEmpty)
                     }
-                    .padding(.leading, 100)
+//                    .padding(.leading, 100)
                     
                     Spacer()
                     
-                    Button(action: {
-                        self.shouldClearCanvas = true
-                    }) {
-                        Text("Clear Canvas")
-                            .padding()
-                            .background(Color.red)
-                            .foregroundColor(.white)
-                            .cornerRadius(8)
-                    }
-                    .padding([.trailing])
+//                    Button(action: {
+//                        self.shouldClearCanvas = true
+//                    }) {
+//                        Text("Clear Canvas")
+//                            .padding()
+//                            .background(Color.red)
+//                            .foregroundColor(.white)
+//                            .cornerRadius(8)
+//                    }
+//                    .padding([.trailing])
                 }
             }
             .padding()

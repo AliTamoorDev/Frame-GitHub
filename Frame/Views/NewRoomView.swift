@@ -35,28 +35,31 @@ struct NewRoomView: View {
                     .background(Color(UIColor.tertiarySystemFill))
                     .cornerRadius(5)
                     .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray, lineWidth: 0.5))
-                    .navigationBarTitle("Add New Room", displayMode: .inline)
-                
+//                    .navigationBarTitle("Add New Room", displayMode: .inline)
+                    .padding(.bottom, 20)
 //                VStack {
                     
 //                    DrawingCanvas(drawingImage: $drawingImage, viewModel: drawingViewModel, shouldClear: $shouldClearCanvas)
 //                }
 //                    .cornerRadius(8) // Rounded the corners
                 
-                Button("Done Writing") {
-                    // Update roomName with recognizedText from the ViewModel
-                    if !drawingViewModel.recognizedText.isEmpty{
-                        roomName = drawingViewModel.recognizedText
-                        shouldClearCanvas = true // Added this line to clear the canvas
-                    }
-                }
-                .padding()
-                .background(Color.blue)
-                .foregroundColor(.white)
-                .cornerRadius(8)
+//                Button("Done Writing") {
+//                    // Update roomName with recognizedText from the ViewModel
+//                    if !drawingViewModel.recognizedText.isEmpty{
+//                        roomName = drawingViewModel.recognizedText
+//                        shouldClearCanvas = true // Added this line to clear the canvas
+//                    }
+//                }
+//                .padding()
+//                .background(Color.blue)
+//                .foregroundColor(.white)
+//                .cornerRadius(8)
                 
                 Button(action: { onSave(roomName) }) {
                     Text("Save")
+                        .font(.title2)
+                        .frame(height: 40)
+                        .padding()
                         .padding(.horizontal, 16)
                         .padding(.vertical, 8)
                         .background(roomName.isEmpty ? Color.gray : Color.blue) // Disable button if roomName is empty
@@ -71,6 +74,7 @@ struct NewRoomView: View {
     }
 }
 
-//#Preview {
-//    NewRoomView()
-//}
+#Preview {
+    NewRoomView { p in
+    }
+}
